@@ -1,0 +1,8 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+itsdangerous.egg-info/PKG-INFO
+itsdangerous.egg-info/SOURCES.txt
+itsdangerous.egg-info/dependency_links.txt
+itsdangerous.egg-info/top_level.txt

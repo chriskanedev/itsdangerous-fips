@@ -1,0 +1,89 @@
+Metadata-Version: 2.1
+Name: itsdangerous
+Version: 2.2.0
+Summary: Safely pass data to untrusted environments and back.
+Maintainer-email: Pallets <contact@palletsprojects.com>
+License: Copyright 2011 Pallets
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are
+        met:
+        
+        1.  Redistributions of source code must retain the above copyright
+            notice, this list of conditions and the following disclaimer.
+        
+        2.  Redistributions in binary form must reproduce the above copyright
+            notice, this list of conditions and the following disclaimer in the
+            documentation and/or other materials provided with the distribution.
+        
+        3.  Neither the name of the copyright holder nor the names of its
+            contributors may be used to endorse or promote products derived from
+            this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+        "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+        LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+        PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+        HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+        SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+        TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+        NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+        SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Project-URL: Donate, https://palletsprojects.com/donate
+Project-URL: Documentation, https://itsdangerous.palletsprojects.com/
+Project-URL: Changes, https://itsdangerous.palletsprojects.com/changes/
+Project-URL: Source, https://github.com/pallets/itsdangerous/
+Project-URL: Chat, https://discord.gg/pallets
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# ItsDangerous
+
+... so better sign this
+
+Various helpers to pass data to untrusted environments and to get it
+back safe and sound. Data is cryptographically signed to ensure that a
+token has not been tampered with.
+
+It's possible to customize how data is serialized. Data is compressed as
+needed. A timestamp can be added and verified automatically while
+loading a token.
+
+
+## A Simple Example
+
+Here's how you could generate a token for transmitting a user's id and
+name between web requests.
+
+```python
+from itsdangerous import URLSafeSerializer
+auth_s = URLSafeSerializer("secret key", "auth")
+token = auth_s.dumps({"id": 5, "name": "itsdangerous"})
+
+print(token)
+# eyJpZCI6NSwibmFtZSI6Iml0c2Rhbmdlcm91cyJ9.6YP6T0BaO67XP--9UzTrmurXSmg
+
+data = auth_s.loads(token)
+print(data["name"])
+# itsdangerous
+```
+
+
+## Donate
+
+The Pallets organization develops and supports ItsDangerous and other
+popular packages. In order to grow the community of contributors and
+users, and allow the maintainers to devote more time to the projects,
+[please donate today][].
+
+[please donate today]: https://palletsprojects.com/donate
