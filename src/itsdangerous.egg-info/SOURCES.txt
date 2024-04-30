@@ -1,0 +1,14 @@
+setup.py
+itsdangerous/__init__.py
+itsdangerous/_json.py
+itsdangerous/encoding.py
+itsdangerous/exc.py
+itsdangerous/py.typed
+itsdangerous/serializer.py
+itsdangerous/signer.py
+itsdangerous/timed.py
+itsdangerous/url_safe.py
+itsdangerous.egg-info/PKG-INFO
+itsdangerous.egg-info/SOURCES.txt
+itsdangerous.egg-info/dependency_links.txt
+itsdangerous.egg-info/top_level.txt
